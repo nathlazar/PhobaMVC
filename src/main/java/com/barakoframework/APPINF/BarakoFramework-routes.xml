@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:route="https://www.barakoframework.com/mvc/route">
+    <route:controllers base-package="com.barakoframework.mycontrollers"/>
+</routes>
