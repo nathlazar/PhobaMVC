@@ -6,12 +6,15 @@
 package com.phobamvc.ui;
 
 import com.phobamvc.core.ControllerLoader;
+import com.phobamvc.core.Returnable;
 
 /**
  *
  * @author Lazar-PC
  */
 public interface View {
+    
+    public Returnable RETURNS=new Returnable();
     
     public abstract void updateView();
     
