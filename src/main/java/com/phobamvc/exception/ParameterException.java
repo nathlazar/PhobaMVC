@@ -3,13 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.barakoframework.core;
+package com.phobamvc.exception;
 
 /**
  *
  * @author Lazar-PC
  */
-public class ControllerPool extends ObjectPool{
+public class ParameterException extends Exception{
     
+    public ParameterException(Class c){
+        
+        super(c.toString()+" is not valid parameter type for controller's method");
+        
+    }
     
 }

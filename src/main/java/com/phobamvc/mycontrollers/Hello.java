@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.barakoframework.mycontrollers;
+package com.phobamvc.mycontrollers;
 
-import com.barakoframework.annotations.Mapping;
+import com.phobamvc.annotations.Mapping;
 
 /**
  *

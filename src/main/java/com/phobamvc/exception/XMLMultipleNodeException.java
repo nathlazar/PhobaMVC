@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.barakoframework.exception;
+package com.phobamvc.exception;
 
 /**
  *
  * @author Lazar-PC
  */
-public class ParameterException extends Exception{
+public class XMLMultipleNodeException extends Exception{
     
-    public ParameterException(Class c){
+    public XMLMultipleNodeException(){
         
-        super(c.toString()+" is not valid parameter type for controller's method");
+        super("Must be 1 node occurence only");
         
     }
     

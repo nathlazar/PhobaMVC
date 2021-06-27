@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.barakoframework.ui;
+package com.phobamvc.ui;
 
-import com.barakoframework.core.ControllerLoader;
+import com.phobamvc.core.ControllerLoader;
 
 /**
  *

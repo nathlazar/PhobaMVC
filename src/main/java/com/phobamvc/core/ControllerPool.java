@@ -3,18 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.barakoframework.exception;
+package com.phobamvc.core;
 
 /**
  *
  * @author Lazar-PC
  */
-public class ParameterExceedException extends Exception{
+public class ControllerPool extends ObjectPool{
     
-    public ParameterExceedException(){
-        
-        super("The method's parameter exceeds");
-        
-    }
     
 }

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.barakoframework.testing;
+package com.phobamvc.testing;
 
-import com.barakoframework.core.ApplicationContext;
+import com.phobamvc.core.ApplicationContext;
 import java.io.IOException;
 
 
@@ -20,9 +20,9 @@ public class MyMain {
      */
     public static void main(String[] args) throws IOException, IllegalArgumentException, IllegalAccessException, ClassNotFoundException {
         // TODO code application logic here
-        ApplicationContext app=new ApplicationContext("com.barakoframework");
+        ApplicationContext app=new ApplicationContext("com.phobamvc");
         MyView myView=new MyView();
-     
+        
     }
     
 }

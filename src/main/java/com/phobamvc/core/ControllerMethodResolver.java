@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.barakoframework.core;
+package com.phobamvc.core;
 
-import com.barakoframework.annotations.Mapping;
-import com.barakoframework.exception.NoSuchMapException;
-import com.barakoframework.exception.ParameterExceedException;
-import com.barakoframework.exception.ParameterException;
-import com.barakoframework.ui.View;
-import com.barakoframework.wrapper.ParamRequest;
+import com.phobamvc.annotations.Mapping;
+import com.phobamvc.exception.NoSuchMapException;
+import com.phobamvc.exception.ParameterExceedException;
+import com.phobamvc.exception.ParameterException;
+import com.phobamvc.ui.View;
+import com.phobamvc.wrapper.ParamRequest;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import com.barakoframework.annotations.ParameterMap;
+import com.phobamvc.annotations.ParameterMap;
 
 /**
  *

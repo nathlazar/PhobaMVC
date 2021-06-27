@@ -3,14 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.barakoframework.wrapper;
-
-import java.util.Hashtable;
+package com.phobamvc.exception;
 
 /**
  *
  * @author Lazar-PC
  */
-public class ParamRequest extends Hashtable<String,Object>{
+public class NoSuchMapException extends Exception{
+    
+    public NoSuchMapException(String mapvalue){
+        
+        super("\""+mapvalue+"\" does not exist");
+        
+        
+    }
     
 }

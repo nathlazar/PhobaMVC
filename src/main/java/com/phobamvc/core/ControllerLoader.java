@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.barakoframework.core;
+package com.phobamvc.core;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
-import com.barakoframework.ui.View;
+import com.phobamvc.ui.View;
 
 /**
  *

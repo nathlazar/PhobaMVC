@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.barakoframework.core;
+package com.phobamvc.core;
 
-import com.barakoframework.exception.XMLMultipleNodeException;
+import com.phobamvc.exception.XMLMultipleNodeException;
 import java.io.File;
 import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
@@ -30,7 +30,7 @@ public class Parser {
             DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);
             DocumentBuilder builder=factory.newDocumentBuilder();
-            Document doc=builder.parse(new File(ApplicationContext.getConfigLocation()+"\\barako.xml"));
+            Document doc=builder.parse(new File(ApplicationContext.getConfigLocation()+"\\phoba.xml"));
             doc.getDocumentElement().normalize();
             NodeList nodeList=doc.getDocumentElement().getElementsByTagName("displayname");
             checkSingleNode(nodeList);
