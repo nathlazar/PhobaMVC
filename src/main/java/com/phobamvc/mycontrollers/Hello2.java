@@ -17,10 +17,9 @@ public class Hello2 {
     @Mapping(map="display")
     public String displayName(ParamRequest p){
         
-        int i=Integer.parseInt(p.get("age").toString());
+        int i=(int)p.get("age");
         String s=p.get("name").toString();
-        System.out.println("Name "+s+" "+"\nAge "+i);
-        return "Hello";
+        return "Hello this is you info \nName "+s+" "+"\nAge "+i;
         
     }
     
@@ -29,7 +28,6 @@ public class Hello2 {
         
         System.out.println("Fuck you gago");
         return "Hello";
-       
         
     }
     
