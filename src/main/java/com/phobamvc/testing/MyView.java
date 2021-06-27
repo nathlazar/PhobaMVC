@@ -7,13 +7,14 @@ package com.phobamvc.testing;
 
 import com.phobamvc.ui.View;
 import com.phobamvc.annotations.ParameterMap;
+import com.phobamvc.ui.ViewAdapter;
 
 /**
  *
  * @author Lazar-PC
  */
 
-public class MyView implements View{
+public class MyView implements ViewAdapter{
     
     @ParameterMap(param="age")
     public int myage;
@@ -25,18 +26,13 @@ public class MyView implements View{
         
         myage=26;
         myname="Jonathan Lazar";
-        request("display"); //call controller method
-        
-        
+        //call controller method
+        request("display",()->{
+            
+           System.out.println(RETURNS.getValue());
+            
+        });
+       
     }
-    
-    @Override
-    public void updateView(){ //triggered when calling request method
-        
-        System.out.println("Success");
-        
-        
-    }
-    
     
 }
