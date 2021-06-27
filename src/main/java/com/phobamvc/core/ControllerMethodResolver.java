@@ -30,7 +30,7 @@ public class ControllerMethodResolver {
     private static int PARAM_REQUEST=1;
     private static int PARAM_ERROR=2;
     private static int PARAM_EXCEED=3;
-    
+
     public static void methodChecker(Hashtable<String,Object> hash,Enumeration<String> enumeration,String mapvalue,View view) throws NoSuchMapException, 
             IllegalAccessException, 
             IllegalArgumentException, 
@@ -58,7 +58,7 @@ public class ControllerMethodResolver {
                         
                         if(paramState==NO_PARAM){
                             
-                            m.invoke(hash.get(k));
+                            view.RETURNS.setObj(m.invoke(hash.get(k)));
                             flag=false;
                             ifMapExist=true;
                             break;
@@ -66,7 +66,7 @@ public class ControllerMethodResolver {
                         }
                         else if(paramState==PARAM_REQUEST){
                             
-                            m.invoke(hash.get(k),getParamRequest(view));
+                            view.RETURNS.setObj(m.invoke(hash.get(k),getParamRequest(view)));
                             flag=false;
                             ifMapExist=true;
                             break;
