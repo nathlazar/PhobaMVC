@@ -26,7 +26,9 @@
 
 package com.phobamvc.core;
 
+import com.phobamvc.annotations.Controller;
 import java.io.File;
+import java.lang.annotation.Annotation;
 
 /**
  *
@@ -55,7 +57,13 @@ public class CoreStarter {
                 try{
                     
                     Class c=Class.forName(s1+"."+className);
-                    ApplicationContext.controllerPool.addObject(className,c.getDeclaredConstructor().newInstance());
+                    Annotation anno=c.getDeclaredAnnotation(Controller.class);
+                    
+                    if(anno!=null){
+                        
+                        ApplicationContext.controllerPool.addObject(className,c.getDeclaredConstructor().newInstance());
+                        
+                    }
                     
                 }
                 catch(Exception e){
