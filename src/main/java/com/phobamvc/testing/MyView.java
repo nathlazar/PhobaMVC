@@ -32,6 +32,12 @@ public class MyView implements ViewAdapter{
            System.out.println(RETURNS.getValue());
             
         });
+        
+        request("greet",()->{
+            
+           System.out.println(RETURNS.getValue());
+            
+        });
        
     }
     

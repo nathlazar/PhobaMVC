@@ -5,6 +5,7 @@
  */
 package com.phobamvc.mycontrollers;
 
+import com.phobamvc.annotations.Controller;
 import com.phobamvc.annotations.Mapping;
 import com.phobamvc.wrapper.ParamRequest;
 
@@ -12,6 +13,8 @@ import com.phobamvc.wrapper.ParamRequest;
  *
  * @author Lazar-PC
  */
+
+@Controller
 public class Hello2 {
     
     @Mapping(map="display")
@@ -23,11 +26,10 @@ public class Hello2 {
         
     }
     
-    @Mapping(map="curse")
-    public String cursing(){
+    @Mapping(map="greet")
+    public String greetings(){
         
-        System.out.println("Fuck you gago");
-        return "Hello";
+        return "A wonderful day";
         
     }
     

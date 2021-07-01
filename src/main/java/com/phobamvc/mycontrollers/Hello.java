@@ -5,6 +5,7 @@
  */
 package com.phobamvc.mycontrollers;
 
+import com.phobamvc.annotations.Controller;
 import com.phobamvc.annotations.Mapping;
 
 /**
@@ -12,7 +13,7 @@ import com.phobamvc.annotations.Mapping;
  * @author Lazar-PC
  */
 
-
+@Controller
 public class Hello {
     
     @Mapping(map="greetings")
