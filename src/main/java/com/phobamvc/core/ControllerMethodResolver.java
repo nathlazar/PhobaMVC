@@ -40,6 +40,9 @@ import java.lang.reflect.Parameter;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import com.phobamvc.annotations.ParameterMap;
+import com.phobamvc.wrapper.ActionView;
+import com.phobamvc.wrapper.Content;
+import com.phobamvc.wrapper.ViewResult;
 
 /**
  *
@@ -51,13 +54,20 @@ public class ControllerMethodResolver {
     private static int PARAM_REQUEST=1;
     private static int PARAM_ERROR=2;
     private static int PARAM_EXCEED=3;
+    private static int VIEW_RESULT=4;
+    private static int CONTENT=5;
+    private static int GENERAL=6;
+    
 
     public static void methodChecker(Hashtable<String,Object> hash,Enumeration<String> enumeration,String mapvalue,View view) throws NoSuchMapException, 
             IllegalAccessException, 
             IllegalArgumentException, 
             InvocationTargetException, 
             ParameterException, 
-            ParameterExceedException{
+            ParameterExceedException,
+            ClassNotFoundException,
+            NoSuchMethodException,
+            InstantiationException{
         
         boolean flag=true;
         boolean ifMapExist=false;
@@ -77,17 +87,43 @@ public class ControllerMethodResolver {
                         Parameter[] p=m.getParameters();
                         int paramState=checkMethodParameters(p);
                         
-                        if(paramState==NO_PARAM){
+                        if(paramState==NO_PARAM||paramState==PARAM_REQUEST){
                             
-                            view.RETURNS.setObj(m.invoke(hash.get(k)));
-                            flag=false;
-                            ifMapExist=true;
-                            break;
+                            ActionView actionView;
                             
-                        }
-                        else if(paramState==PARAM_REQUEST){
+                            if(paramState==NO_PARAM){
+                                
+                                 actionView=(ViewResult)m.invoke(hash.get(k));
+                                
+                            }
+                            else{
+                             
+                                actionView=(ViewResult)m.invoke(hash.get(k),getParamRequest(view));   
+                                
+                            }
                             
-                            view.RETURNS.setObj(m.invoke(hash.get(k),getParamRequest(view)));
+                            if(checkActionViewType(actionView)==VIEW_RESULT){
+                                
+                                ViewResult viewResult=(ViewResult)actionView;
+                                View redirView=(View)(Class.forName("com.phobamvc.testing."+viewResult.getViewName()).getDeclaredConstructor().newInstance());
+                                redirView.MODEL.setObj(viewResult.getModel());
+                                redirView.VIEW_CONTAINER.setObj(viewResult.getContainer());
+                                redirView.initView();
+                                
+                                
+                                
+                            }
+                            else if(checkActionViewType(actionView)==CONTENT){
+                                
+                                ;
+                                
+                            }
+                            else{
+                             
+                                ;   
+                                
+                            }
+                            
                             flag=false;
                             ifMapExist=true;
                             break;
@@ -108,7 +144,6 @@ public class ControllerMethodResolver {
                     
                 }
                 
-                
             }
             
 	}
@@ -122,6 +157,26 @@ public class ControllerMethodResolver {
     
     public static void methodRunner(){
         
+    }
+    
+    private static int checkActionViewType(ActionView actionView){
+    
+        if(actionView instanceof ViewResult){
+            
+            return VIEW_RESULT;
+            
+        }
+        else if(actionView instanceof Content){
+            
+            return CONTENT;
+            
+        }
+        else{
+         
+            return GENERAL;
+            
+        }
+    
     }
     
     private static int checkMethodParameters(Parameter[] p){
@@ -159,12 +214,23 @@ public class ControllerMethodResolver {
         ParamRequest param=new ParamRequest();
         Field[] field=view.getClass().getDeclaredFields();
        
+        
         for(Field f:field){
             
             Annotation  anno=f.getDeclaredAnnotation(ParameterMap.class);
             ParameterMap p=(ParameterMap)anno;
             //System.out.println(p.param()+" "+f.get(view));
-            param.put(p.param(),f.get(view));
+            try{
+                
+                param.put(p.param(),f.get(view));
+                
+            }
+            catch(NullPointerException e){
+                
+                e.printStackTrace();
+                
+            }
+            
             
         }
         

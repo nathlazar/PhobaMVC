@@ -27,7 +27,9 @@
 package com.phobamvc.ui;
 
 import com.phobamvc.core.ControllerLoader;
+import com.phobamvc.core.Model;
 import com.phobamvc.core.Returnable;
+import com.phobamvc.core.ViewContainer;
 
 /**
  *
@@ -37,7 +39,14 @@ public interface View {
     
     public Returnable RETURNS=new Returnable();
     
+    public Model MODEL=new Model();
+    
+    public ViewContainer VIEW_CONTAINER=new ViewContainer();
+    
+    public abstract void initView();
+    
     public abstract void updateView();
+    
     
     public default void request(String mapvalue){
  

@@ -44,4 +44,12 @@ public interface ViewAdapter extends View{
         ;
     }
     
+    @Override
+    public default void initView(){
+        
+        ;
+        
+    }
+    
+    
 }

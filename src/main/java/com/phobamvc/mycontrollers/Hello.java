@@ -7,6 +7,10 @@ package com.phobamvc.mycontrollers;
 
 import com.phobamvc.annotations.Controller;
 import com.phobamvc.annotations.Mapping;
+import com.phobamvc.mymodels.Person;
+import com.phobamvc.wrapper.ActionView;
+import com.phobamvc.wrapper.ParamRequest;
+import com.phobamvc.wrapper.ViewResult;
 
 /**
  *
@@ -29,8 +33,13 @@ public class Hello {
         System.out.println("Hello Tangina mo");
     }
     
-    public void fuckingshit(){
+    @Mapping(map="testing")
+    public ActionView testing(ParamRequest p){
+        
+        Person person=new Person((String)p.get("username"),(int)p.get("age"));
+        javax.swing.JPanel panel=(javax.swing.JPanel)p.get("container");
+        return new ViewResult("MyPanel",panel,person);
         
     }
-    
+
 }

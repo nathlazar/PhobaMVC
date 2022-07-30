@@ -21,7 +21,8 @@ public class MyMain {
     public static void main(String[] args) throws IOException, IllegalArgumentException, IllegalAccessException, ClassNotFoundException {
         // TODO code application logic here
         ApplicationContext app=new ApplicationContext("com.phobamvc");
-        MyView myView=new MyView();
+        MyFrame myView=new MyFrame();
+        myView.setVisible(true);
         
     }
     
